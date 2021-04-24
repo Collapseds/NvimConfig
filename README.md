@@ -1,3 +1,4 @@
+## <center>This is just a reprint, the original author is theniceboy, just for the convenience of learning</center>
 ## <center>The Ultimate NeoVim Config for [Colemak](https://colemak.com/) Users</center>
 
 <center><img src="https://raw.githubusercontent.com/theniceboy/nvim/master/demo.png"></center>
