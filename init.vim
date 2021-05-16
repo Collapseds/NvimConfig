@@ -200,6 +200,8 @@ noremap <silent> J 0
 noremap <silent> L $
 
 " Faster in-line navigation
+noremap e w
+noremap w b
 noremap E 5w
 noremap W 5b
 
@@ -264,8 +266,8 @@ noremap sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap si :set splitright<CR>:vsplit<CR>
 
 " Resize splits with arrow keys
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
+noremap <Up> :res +5<CR>
+noremap <Down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
@@ -723,9 +725,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
-nmap tt :CocCommand explorer<CR>
+nmap ge :CocCommand explorer<CR>
 " coc-translator
-nmap ts <Plug>(coc-translator-p)
+nmap gt <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
@@ -866,7 +868,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " ===
 " === Undotree
 " ===
-noremap T :UndotreeToggle<CR>
+noremap Un :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -898,20 +900,20 @@ endfunc
 " ===
 " === vim-visual-multi
 " ===
-"let g:VM_theme             = 'iceblue'
+let g:VM_theme             = 'iceblue'
 "let g:VM_default_mappings = 0
 let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
 let g:VM_maps                       = {}
 let g:VM_custom_motions             = {'j': 'h', 'l': 'l', 'i': 'k', 'k': 'j', 'J': '0', 'L': '$', 'b': 'e'}
-let g:VM_maps['i']                  = 'k'
-let g:VM_maps['I']                  = 'K'
-let g:VM_maps['Find Under']         = '<C-a>'
-let g:VM_maps['Find Subword Under'] = '<C-a>'
+let g:VM_maps['i']                  = '0'
+let g:VM_maps['I']                  = ')'
+let g:VM_maps['Find Under']         = '<C-s>'
+let g:VM_maps['Find Subword Under'] = '<C-s>'
 let g:VM_maps['Find Next']          = ''
 let g:VM_maps['Find Prev']          = ''
 let g:VM_maps['Remove Region']      = 'q'
 let g:VM_maps['Skip Region']        = '<c-n>'
-let g:VM_maps["Undo"]               = 'l'
+let g:VM_maps["Undo"]               = 'u'
 let g:VM_maps["Redo"]               = '<C-r>'
 
 
@@ -1012,18 +1014,18 @@ let g:calendar_google_task = 1
 augroup calendar-mappings
 	autocmd!
 	" diamond cursor
-	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	autocmd FileType calendar nmap <buffer> <c-k> <Plug>(calendar_move_up)
+	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_up)
+	autocmd FileType calendar nmap <buffer> j <Plug>(calendar_left)
+	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_down)
+	autocmd FileType calendar nmap <buffer> l <Plug>(calendar_right)
+	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_up)
 	autocmd FileType calendar nmap <buffer> <c-h> <Plug>(calendar_move_left)
-	autocmd FileType calendar nmap <buffer> <c-j> <Plug>(calendar_move_down)
-	autocmd FileType calendar nmap <buffer> <c-l> <Plug>(calendar_move_right)
+	autocmd FileType calendar nmap <buffer> <c-y> <Plug>(calendar_move_down)
+	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_right)
 	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
 	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
 	" unmap <C-n>, <C-p> for other plugins
-	autocmd FileType calendar nunmap <buffer> <C-n>
+	autocmd FileType calendar nunmap <buffer> <C-j>
 	autocmd FileType calendar nunmap <buffer> <C-p>
 augroup END
 
@@ -1359,7 +1361,7 @@ let g:move_key_modifier = 'C'
 " ===
 " === any-jump
 " ===
-nnoremap a :AnyJump<CR>
+nnoremap ` :AnyJump<CR>
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 
